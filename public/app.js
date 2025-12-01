@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const scheduleContainer = document.getElementById('scheduleContainer');
     const searchInput = document.getElementById('searchInput');
+    const loadingIndicator = document.getElementById('loadingIndicator');
     let talksData = [];
 
     fetch('/api/talks')
@@ -8,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(data => {
             talksData = data;
             renderSchedule(talksData);
+            loadingIndicator.style.display = 'none';
         });
 
     searchInput.addEventListener('input', () => {

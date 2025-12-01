@@ -50,7 +50,10 @@ const talks = [
 app.use(express.static('public'));
 
 app.get('/api/talks', (req, res) => {
-    res.json(talks);
+    // Artificial delay for testing the loading indicator
+    setTimeout(() => {
+        res.json(talks);
+    }, 1000); // 1-second delay
 });
 
 app.listen(port, () => {
