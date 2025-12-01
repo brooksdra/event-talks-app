@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', () => {
         const searchTerm = searchInput.value.toLowerCase();
         const filteredTalks = talksData.filter(talk => 
-            talk.category.some(cat => cat.toLowerCase().includes(searchTerm))
+            talk.category.some(cat => cat.toLowerCase().includes(searchTerm)) ||
+            talk.speakers.some(speaker => speaker.toLowerCase().includes(searchTerm))
         );
         renderSchedule(filteredTalks);
     });
